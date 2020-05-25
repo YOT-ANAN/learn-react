@@ -68,7 +68,7 @@ class App extends Component {
     // .then(res => {this.setState({products:res})})
 
     axios.get("http://localhost:3001/products").then(res => {
-      this.setState({products:res.data})
+      this.setState({products: res.data})
     })
   }
   render() {
