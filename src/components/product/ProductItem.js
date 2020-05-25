@@ -3,10 +3,6 @@ class ProductItem extends Component {
   constructor(props) {
     super(props);
   }
-  //   dosSomeThing(productName){
-  //     console.log(productName)
-  //   }
-
   render() {
     const { productName, unitPrice, thumbnail } = this.props.product;
     return (
@@ -19,7 +15,7 @@ class ProductItem extends Component {
             className="btn btn-block btn-success"
             onClick={() => {
               this.props.onAddOrder(this.props.product);
-              console.log(this.props.product)
+              //console.log(this.props.product)
             }}
           >
             ซื้อ

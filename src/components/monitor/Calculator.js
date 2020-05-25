@@ -12,7 +12,12 @@ class Calculator extends Component {
           <li className="text-right text-success title">
             {order.product.productName} x {order.quantity} ={" "}
             {order.product.unitPrice * order.quantity}
-            <button className="btn btn-light btn-sm">X</button>
+            <button
+              className="btn btn-light btn-sm"
+              onClick={() => this.props.onDelOrder(order.product)}
+            >
+              X
+            </button>
           </li>
         );
       });
@@ -24,11 +29,7 @@ class Calculator extends Component {
       <div>
         <h1 className="text-right">{totalPrice}</h1>
         <hr />
-        <ul className="list-unstyled">
-         
-            {this.showOrders(this.props.orders)}
-   
-        </ul>
+        <ul className="list-unstyled">{this.showOrders(this.props.orders)}</ul>
         <button className="btn btn-block btn-danger title">ยืนยัน</button>
         <button className="btn btn-block btn-secondary title">ยกเลิก</button>
       </div>
@@ -36,3 +37,5 @@ class Calculator extends Component {
   }
 }
 export default Calculator;
+
+//   onDelOrder={this.delOrder}

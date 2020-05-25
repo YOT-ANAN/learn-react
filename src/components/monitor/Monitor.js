@@ -6,10 +6,11 @@ class Monitor extends Component {
     super(props);
     this.state = { totalPrice: 0, orders: [] };
     this.addOrder = this.addOrder.bind(this);
+    this.delOrder = this.delOrder.bind(this);
   }
   addOrder(product) {
-    let findOrder = this.state.orders.find((order) => 
-      order.product.productId == product.productId
+    let findOrder = this.state.orders.find(
+      (order) => order.product.productId == product.productId
     );
     if (findOrder) {
       findOrder.quantity++;
@@ -18,6 +19,16 @@ class Monitor extends Component {
     }
     const totalPrice = this.state.totalPrice + parseInt(product.unitPrice);
     this.setState({ totalPrice: totalPrice, orders: this.state.orders });
+  }
+  delOrder(product) {
+    let findOrder = this.state.orders.find(
+      (order) => order.product.productId == product.productId
+    );
+    let resultOrder = this.state.orders.filter(
+      (order) => order.product.productId != product.productId
+    );
+    const totalPrice = this.state.totalPrice - parseInt(findOrder.product.unitPrice)*findOrder.quantity;
+    this.setState({ totalPrice: totalPrice, orders: resultOrder });
   }
   render() {
     return (
@@ -33,6 +44,7 @@ class Monitor extends Component {
             <Calculator
               totalPrice={this.state.totalPrice}
               orders={this.state.orders}
+              onDelOrder={this.delOrder}
             />
           </div>
         </div>
