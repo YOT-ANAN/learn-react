@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import Monitor from "./components/monitor/Monitor"
 import Footer from "./components/Footer";
+import axios from "axios";
 
 /*function App() {
   return (
@@ -60,9 +61,15 @@ class App extends Component {
     //   ],
     // });
 
-    fetch("http://localhost:3001/products", { method: "GET" })
-    .then(res => res.json())
-    .then(res => {this.setState({products:res})})
+
+    // 2nd solution
+    // fetch("http://localhost:3001/products", { method: "GET" })
+    // .then(res => res.json())
+    // .then(res => {this.setState({products:res})})
+
+    axios.get("http://localhost:3001/products").then(res => {
+      this.setState({products:res.data})
+    })
   }
   render() {
     return (
