@@ -13,7 +13,7 @@ class Calculator extends Component {
             {order.product.productName} x {order.quantity} ={" "}
             {order.product.unitPrice * order.quantity}
             <button
-              className="btn btn-light btn-sm"
+              className="btn btn-light btn-sm ml-2"
               onClick={() => this.props.onDelOrder(order.product)}
             >
               X
