@@ -36,7 +36,7 @@ class Monitor extends Component {
   confirmOrder() {
     const { totalPrice, orders } = this.state;
     if (orders && orders.length > 0) {
-      axios.post("http://localhost:3001/products", {
+      axios.post("http://localhost:3001/orders", {
         orderDate: new Date, totalPrice, orders
       }).then(
         () => {

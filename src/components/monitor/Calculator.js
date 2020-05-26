@@ -9,7 +9,7 @@ class Calculator extends Component {
     } else {
       return orders.map((order) => {
         return (
-          <li className="text-right text-success title">
+          <li key={order.product.id}className="text-right text-success title">
             {order.product.productName} x {order.quantity} ={" "}
             {order.product.unitPrice * order.quantity}
             <button
