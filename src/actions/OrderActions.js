@@ -1,17 +1,22 @@
 import axios from "axios";
-export const ordersFetch = () => {
+import { ORDERS_FETCH } from "./type";
+export const orderFetch = () => {
     return dispatch => { //หลีกเลี่ยงการ asyconous
         axios.get("https://localhost:3001/orders").then(
             res => {
-                dispatch({ type: "orders_fetch", payload: res.data }); 
-                
-               
+                dispatch({ type: ORDERS_FETCH, payload: res.data });
             }
         )
     }
-
-
 }
-export const orderDelete = () => {
-
+export const orderDelete = id => {
+    return dispatch => {
+        axios.delete("http://localhost:3001/orders" + id).then(res => {
+            axios.get("http://localhost:3001/orders").then(
+                res => {
+                    dispatch({ type: ORDERS_FETCH, payload: res.data });
+                });
+        }
+        )
+    }
 }
