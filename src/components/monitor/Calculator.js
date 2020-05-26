@@ -30,8 +30,8 @@ class Calculator extends Component {
         <h1 className="text-right">{totalPrice}</h1>
         <hr />
         <ul className="list-unstyled">{this.showOrders(this.props.orders)}</ul>
-        <button className="btn btn-block btn-danger title">ยืนยัน</button>
-        <button className="btn btn-block btn-secondary title">ยกเลิก</button>
+        <button className="btn btn-block btn-danger title" onClick={() => this.props.onConfirmOrder()}>ยืนยัน</button>
+        <button className="btn btn-block btn-secondary title" onClick={() => this.props.onCancelOrder()}>ยกเลิก</button>
       </div>
     );
   }
