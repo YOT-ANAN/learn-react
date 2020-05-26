@@ -126,6 +126,22 @@
         }
       ],
       "id": 6
+    },
+    {
+      "orderDate": "2020-05-26T07:56:05.069Z",
+      "totalPrice": 420,
+      "orders": [
+        {
+          "product": {
+            "id": 4,
+            "productName": "เฟรนฟราย",
+            "unitPrice": "140",
+            "thumbnail": "/images/product/4.jpg"
+          },
+          "quantity": 3
+        }
+      ],
+      "id": 7
     }
   ]
 }

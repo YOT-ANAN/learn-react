@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom"
 
 class Header extends Component {
   constructor(props) {
@@ -22,6 +23,17 @@ class Header extends Component {
           </div>
           <div className="col-md-4 text-right mg">
             <h1 className="mt-4"> {this.state.date.toLocaleTimeString()}</h1>
+            <ul className="list-inline">
+              <li className="list-inline-item title"><Link className="text-success h2" to="/" >หน้าหลัก</Link></li>
+              <li className="list-inline-item title h2">|</li>
+              <li className="list-inline-item title"><Link className="text-success h2" to="/orders">รายการสินค้า</Link></li>
+              <li className="list-inline-item title h2">|</li>
+              <li className="list-inline-item title"><Link className="text-success h2" to="/products">สินค้า</Link></li>
+              <li className="list-inline-item title h2">|</li>
+              <li className="list-inline-item title"><Link className="text-success h2" to="/about">เกี่ยวกับเรา</Link></li>
+             
+         
+            </ul>
           </div>
         </div>
         <hr />

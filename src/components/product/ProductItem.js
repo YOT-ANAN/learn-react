@@ -11,15 +11,32 @@ class ProductItem extends Component {
         <div className="mt-2 ">
           <p>{productName}</p>
           <p className="text-right">{unitPrice} THB</p>
-          <button
-            className="btn btn-block btn-success"
-            onClick={() => {
-              this.props.onAddOrder(this.props.product);
-              //console.log(this.props.product)
-            }}
-          >
-            ซื้อ
-          </button>
+          {this.props.onAddOrder && (
+            <button
+              className="btn btn-block btn-success title"
+              onClick={() => {
+                this.props.onAddOrder(this.props.product);
+                //console.log(this.props.product)
+              }}
+            >
+              ซื้อ
+            </button>
+          )}
+          {(this.props.onDelProduct || this.props.onEditProduct) && (
+            <button className="btn  btn-info col-5 title" onClick={()=>{this.props.onEditProduct(this.props.product)}}>
+              เเก้ไข
+            </button>
+          )}
+          {(this.props.onDelProduct || this.props.onEditProduct) && (
+            <button
+              className="btn  btn-danger col-5 title float-right"
+              onClick={() => {
+                this.props.onDelProduct(this.props.product);
+              }}
+            >
+              ลบ
+            </button>
+          )}
           <hr />
         </div>
       </div>
