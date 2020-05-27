@@ -42,7 +42,7 @@ class Order extends Component {
               {order.orders &&
                 order.orders.map((record) => {
                   return (
-                    <li key={record.product.id}>
+                    <li key={record.product.id} className="title">
                       {record.product.productName} x {record.quantity} ={" "}
                       {record.product.unitPrice * record.quantity}
                     </li>
