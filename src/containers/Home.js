@@ -2,20 +2,15 @@ import React, { Component } from "react";
 import Header from "../components/Header";
 import Monitor from "../components/monitor/Monitor"
 import Footer from "../components/Footer";
-import axios from "axios";
+//import axios from "axios";
+import { connect } from "react-redux";
+import { productFetch } from "../actions/index";
 
-/*function Home() {
-  return (
-    <div className="Home">
-      <Header />
-      <Footer company="PSU" email="5910110270@psu.ac.th" />
-    </div>
-  );
-}*/
 class Home extends Component {
+  // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
-    this.state = { products: "" };
+    //this.state = { products: "" }; not use redux
   }
   componentDidMount() {
     // 1st solution
@@ -66,19 +61,23 @@ class Home extends Component {
     // .then(res => res.json())
     // .then(res => {this.setState({products:res})})
 
-    axios.get("http://localhost:3001/products").then(res => {
-      this.setState({products: res.data})
-    })
+    // axios.get("http://localhost:3001/products").then(res => {
+    //   this.setState({products: res.data})
+    // }) 
+    //not use redux
+    this.props.productFetch();
   }
   render() {
     return (
       <div className="Home">
         <Header />
-        <Monitor products={this.state.products} />
+        <Monitor products={this.props.products} />
         <Footer company="PSU" email="5910110270@psu.ac.th" />
       </div>
     );
   }
 }
-
-export default Home;
+function mapStateToProps(state) {
+  return ({products: state.products}); //map in state to products
+}
+export default connect(mapStateToProps, { productFetch })(Home);
